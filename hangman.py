@@ -43,39 +43,39 @@ def getAvailableLetters(lettersGuessed):
 
 # the game
 def hangman(secretWord):
-    print 'Hello! Welcome to the game "Hangman"!'
-    print 'You should guess a word, that has ' \
-            + str(len(secretWord)) + ' letters. And you have 8 guesses per game.'
+    print('Hello! Welcome to the game "Hangman"!')
+    print('You should guess a word, that has ' \
+            + str(len(secretWord)) + ' letters. And you have 8 guesses per game.')
     guessLeft = 8
-    print '' # blanc line just for design
+    print('') # blanc line just for design
 
     lettersGuessed = []
     while guessLeft > 0 and not isWordGuessed(secretWord, lettersGuessed):
-        print 'You have ' + str(guessLeft) + ' guesses left.'
-        print 'Avalable letters: ' + getAvailableLetters(lettersGuessed)
+        print('You have ' + str(guessLeft) + ' guesses left.')
+        print('Avalable letters: ' + getAvailableLetters(lettersGuessed))
         
-        guess = str(raw_input('Plese guess a letter: '))
+        guess = str(input('Plese guess a letter: '))
         guess=guess.lower() #transform UPPERCASE to lowercase
         
     	while len(guess) > 1 and guess not in string.ascii_lowercase:
-    	    guess = str(raw_input('Please type one letter per round only: '))
+    	    guess = str(input('Please type one letter per round only: '))
     	if guess not in lettersGuessed:
     	    lettersGuessed.append(guess)
     	    if guess in secretWord:
-    		print 'Right, go on!'
-    		print ''
+    		print('Right, go on!')
+    		print('')
     	    
     	    else:
     		guessLeft -= 1
-    		print 'Wrong! there is no that letter in my word, try again...'
-    		print ''
+    		print('Wrong! there is no that letter in my word, try again...')
+    		print('')
     	else:
-    	    print 'You have already guessed that letter, try again...'
-    	print getGuessedWord(secretWord, lettersGuessed)
-    	print ''
+    	    print('You have already guessed that letter, try again...')
+    	print(getGuessedWord(secretWord, lettersGuessed))
+    	print('')
 
     # test, if all the letters guessed are in secretWord	
     if isWordGuessed(secretWord, lettersGuessed):
-    	print 'Congratulations, that was my word!'
+    	print('Congratulations, that was my word!')
     else:
-        print 'Sorry, you lose. The word was: ','"',str(secretWord),'"'
+        print('Sorry, you lose. The word was: ','"',str(secretWord),'"')
