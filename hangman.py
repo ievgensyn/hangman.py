@@ -1,4 +1,5 @@
 import string
+from __future__ import print_function
 
 ''' secretWord: the word the user is guessing;
     lettersGuessed: list, what letters have been guessed;
